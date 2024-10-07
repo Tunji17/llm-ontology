@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/tal/ontologies/llm#"
+     xml:base="http://www.semanticweb.org/tal/ontologies/llm"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/tal/ontologies/llm"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#designedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tal/ontologies/llm#designedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#AIsystem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#uses -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tal/ontologies/llm#uses">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#AIsystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#AIsystem"/>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#BERT -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#BERT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#LLM"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#GPT -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#GPT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#LLM"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#LLM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#LLM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#LanguageModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#LLMArchitecture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#LLMArchitecture"/>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#LanguageModel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#LanguageModel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#AIsystem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#MLLM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#MLLM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#LLM"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#Module -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#Module"/>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#Organization -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#Organization"/>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#SML -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#SML">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#LanguageModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#TransformerComponent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#TransformerComponent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#Attention -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tal/ontologies/llm#Attention">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#Module"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#Decoder -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tal/ontologies/llm#Decoder">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#TransformerComponent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#Encoder -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tal/ontologies/llm#Encoder">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#TransformerComponent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#FeedForward -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tal/ontologies/llm#FeedForward">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#Module"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#GPT2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tal/ontologies/llm#GPT2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#GPT"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#GPT3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tal/ontologies/llm#GPT3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#GPT"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#GPT4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tal/ontologies/llm#GPT4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#GPT"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#OpenAI -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tal/ontologies/llm#OpenAI">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#Organization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tal/ontologies/llm#Transformer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tal/ontologies/llm#Transformer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#LLMArchitecture"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
