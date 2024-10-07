@@ -2,7 +2,7 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="Imports Wizard Entry" name="https://w3id.org/Green-AI-Ontology/ontology#" uri="https://raw.githubusercontent.com/Tunji17/llm-ontology/21a4fbe65749674429c51404b2f2d145beefe63f/Green-AI.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1728285607139" name="http://www.semanticweb.org/tal/ontologies/llm" uri="LLM_Ontology1.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1728285607139" name="https://w3id.org/Green-AI-Ontology/ontology/" uri="Green-AI.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1728326062064" name="http://www.semanticweb.org/tal/ontologies/llm" uri="LLM_Ontology1.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1728326062064" name="https://w3id.org/Green-AI-Ontology/ontology/" uri="Green-AI.owl"/>
     </group>
 </catalog>

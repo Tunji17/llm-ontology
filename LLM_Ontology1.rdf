@@ -54,7 +54,9 @@
 
     <!-- http://www.semanticweb.org/tal/ontologies/llm#AIsystem -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#AIsystem"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#AIsystem">
+        <owl:equivalentClass rdf:resource="https://w3id.org/Green-AI-Ontology/ontology/AIModel"/>
+    </owl:Class>
     
 
 
@@ -77,7 +79,28 @@
     <!-- http://www.semanticweb.org/tal/ontologies/llm#LLM -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#LLM">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/tal/ontologies/llm#LanguageModel"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/Green-AI-Ontology/ontology/hasParameters"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10000000000</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#LanguageModel"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#SML"/>
     </owl:Class>
     
 
@@ -119,6 +142,26 @@
     <!-- http://www.semanticweb.org/tal/ontologies/llm#SML -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tal/ontologies/llm#SML">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/tal/ontologies/llm#LanguageModel"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/Green-AI-Ontology/ontology/hasParameters"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10000000000</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tal/ontologies/llm#LanguageModel"/>
     </owl:Class>
     
