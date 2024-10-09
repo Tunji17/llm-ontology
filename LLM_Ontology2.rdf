@@ -388,19 +388,70 @@ org:Organization rdf:type owl:Class ;
 :GPT2 rdf:type owl:NamedIndividual ,
                :GPT ;
       rdfs:comment "An instance of the GPT class, representing the GPT-2 model." ;
-      rdfs:label "GPT2" .
+      rdfs:label "GPT2" ;
+      :designedBy :OpenAI ;
+      :hasEnergyMetrics :GPT2_EnergyMetrics ;
+      :hasHardwareSettings :GPT2_HardwareSettings ;
+      :hasSoftwareSettings :GPT2_SoftwareSettings .
 
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT2_EnergyMetrics
+:GPT2_EnergyMetrics rdf:type owl:NamedIndividual ,
+                             :LLMEnergyMetrics ;
+                    rdfs:comment "Energy metrics for GPT2, including wattage and CO2 equivalent emissions." ;
+                    rdfs:label "GPT2_EnergyMetrics" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT2_HardwareSettings
+:GPT2_HardwareSettings rdf:type owl:NamedIndividual ,
+                                :LLMHardwareSettings ;
+                       green-ai:hasCPU :IntelCoreI7 ;
+                       green-ai:hasGPU :NVIDIAGeForceRTX3070 ;
+                       rdfs:comment "Hardware settings for GPT2, including CPU and GPU used." ;
+                       rdfs:label "GPT2_HardwareSettings" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT2_SoftwareSettings
+:GPT2_SoftwareSettings rdf:type owl:NamedIndividual ,
+                                :LLMSoftwareSettings ;
+                       rdfs:comment "Software settings for GPT2, including operating system and programming language." ;
+                       rdfs:label "GPT2_SoftwareSettings" ;
+                       green-ai:hasOperatingSystem :Ubuntu20.04 ;
+                       green-ai:hasProgrammingLanguage "Python3.8" .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#GPT3
 :GPT3 rdf:type owl:NamedIndividual ,
                :GPT ;
       rdfs:comment "An instance of the GPT class, representing the GPT-3 model." ;
-      rdfs:label "GPT3" .
+      rdfs:label "GPT3" ;
+      :designedBy :OpenAI ;
+      :hasEnergyMetrics :GPT3_EnergyMetrics ;
+      :hasHardwareSettings :GPT3_HardwareSettings ;
+      :hasSoftwareSettings :GPT3_SoftwareSettings .
 
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT3_EnergyMetrics
+:GPT3_EnergyMetrics rdf:type owl:NamedIndividual ,
+                             :LLMEnergyMetrics ;
+                    rdfs:comment "Energy metrics for GPT3, including wattage and CO2 equivalent emissions." ;
+                    rdfs:label "GPT3_EnergyMetrics" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT3_HardwareSettings
+:GPT3_HardwareSettings rdf:type owl:NamedIndividual ,
+                                :LLMHardwareSettings ;
+                       green-ai:hasCPU :IntelCoreI7 ;
+                       green-ai:hasGPU :NVIDIAGeForceRTX3070 ;
+                       rdfs:comment "Hardware settings for GPT3, including CPU and GPU used." ;
+                       rdfs:label "GPT3_HardwareSettings" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT3_SoftwareSettings
+:GPT3_SoftwareSettings rdf:type owl:NamedIndividual ,
+                                :LLMSoftwareSettings ;
+                       rdfs:comment "Software settings for GPT3, including operating system and programming language." ;
+                       rdfs:label "GPT3_SoftwareSettings" ;
+                       green-ai:hasOperatingSystem :Ubuntu20.04 ;
+                       green-ai:hasProgrammingLanguage "Python3.8" .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#GPT4
 :GPT4 rdf:type owl:NamedIndividual ,
                :GPT ;
+      :designedBy :OpenAI ;
       :hasEnergyMetrics :GPT4_EnergyMetrics ;
       :hasHardwareSettings :GPT4_HardwareSettings ;
       :hasSoftwareSettings :GPT4_SoftwareSettings ;
@@ -430,7 +481,7 @@ org:Organization rdf:type owl:Class ;
                        rdfs:comment "Software settings for GPT4, including operating system and programming language." ;
                        rdfs:label "GPT4_SoftwareSettings" ;
                        green-ai:hasOperatingSystem :Ubuntu20.04 ;
-                       green-ai:hasProgrammingLanguage :Python3.8 .
+                       green-ai:hasProgrammingLanguage "Python3.8" .
 
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#IntelCoreI7
@@ -458,19 +509,124 @@ org:Organization rdf:type owl:Class ;
 :RoBERTa rdf:type owl:NamedIndividual,
                    :BERT ;
           rdfs:comment "An individual representing the RoBERTa model, a robustly optimized BERT model." ;
-          rdfs:label "RoBERTa" .
+          rdfs:label "RoBERTa" ;
+          :designedBy :OpenAI ;
+          :hasFinetuningTask :RoBERTa_FinetuningTask ;
+          green-ai:hasParameters 1200000000 ;
+          green-ai:hasProgrammingLanguage "Python3.8" ;
+          :hasEnergyMetrics :RoBERTa_EnergyMetrics ;
+          :hasHardwareSettings :RoBERTa_HardwareSettings ;
+          :hasSoftwareSettings :RoBERTa_SoftwareSettings .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#RoBERTa_FinetuningTask
+:RoBERTa_FinetuningTask rdf:type owl:NamedIndividual,
+                                :PretrainingTask ;
+                       rdfs:comment "Finetuning task for RoBERTa, focusing on specific tasks like text classification." ;
+                       rdfs:label "RoBERTa_FinetuningTask" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#RoBERTa_EnergyMetrics
+:RoBERTa_EnergyMetrics rdf:type owl:NamedIndividual,
+                                :LLMEnergyMetrics ;
+                       green-ai:hasWatt "120.0"^^xsd:float ;
+                       green-ai:hasKgOfCO2eq "60.0"^^xsd:float .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#RoBERTa_HardwareSettings
+:RoBERTa_HardwareSettings rdf:type owl:NamedIndividual,
+                                :LLMHardwareSettings ;
+                       green-ai:hasCPU :IntelCoreI7 ;
+                       green-ai:hasGPU :NVIDIAGeForceRTX3070 ;
+                       rdfs:comment "Hardware settings for RoBERTa, including CPU and GPU used." ;
+                       rdfs:label "RoBERTa_HardwareSettings" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#RoBERTa_SoftwareSettings
+:RoBERTa_SoftwareSettings rdf:type owl:NamedIndividual ,
+                                :LLMSoftwareSettings ;
+                       rdfs:comment "Software settings for RoBERTa, including operating system and programming language." ;
+                       rdfs:label "RoBERTa_SoftwareSettings" ;
+                       green-ai:hasOperatingSystem :Ubuntu20.04 ;
+                       green-ai:hasProgrammingLanguage "Python3.8" .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#DistilBERT
 :DistilBERT rdf:type owl:NamedIndividual,
                   :BERT ;
              rdfs:comment "An individual representing the DistilBERT model, a distilled version of BERT." ;
-             rdfs:label "DistilBERT" .
+             rdfs:label "DistilBERT" ;
+             :designedBy :OpenAI ;
+             :hasFinetuningTask :DistilBERT_FinetuningTask ;
+             green-ai:hasParameters 1200000000 ;
+             green-ai:hasProgrammingLanguage "Python3.8" ;
+             :hasEnergyMetrics :DistilBERT_EnergyMetrics ;
+             :hasHardwareSettings :DistilBERT_HardwareSettings ;
+             :hasSoftwareSettings :DistilBERT_SoftwareSettings .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#DistilBERT_EnergyMetrics
+:DistilBERT_EnergyMetrics rdf:type owl:NamedIndividual,
+                                :LLMEnergyMetrics ;
+                       green-ai:hasWatt "120.0"^^xsd:float ;
+                       green-ai:hasKgOfCO2eq "60.0"^^xsd:float .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#DistilBERT_HardwareSettings
+:DistilBERT_HardwareSettings rdf:type owl:NamedIndividual,
+                                :LLMHardwareSettings ;
+                       green-ai:hasCPU :IntelCoreI7 ;
+                       green-ai:hasGPU :NVIDIAGeForceRTX3070 ;
+                       rdfs:comment "Hardware settings for DistilBERT, including CPU and GPU used." ;
+                       rdfs:label "DistilBERT_HardwareSettings" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#DistilBERT_SoftwareSettings
+:DistilBERT_SoftwareSettings rdf:type owl:NamedIndividual,
+                                :LLMSoftwareSettings ;
+                       rdfs:comment "Software settings for DistilBERT, including operating system and programming language." ;
+                       rdfs:label "DistilBERT_SoftwareSettings" ;
+                       green-ai:hasOperatingSystem :Ubuntu20.04 ;
+                       green-ai:hasProgrammingLanguage "Python3.8" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#DistilBERT_FinetuningTask
+:DistilBERT_FinetuningTask rdf:type owl:NamedIndividual,
+                                :PretrainingTask ;
+                       rdfs:comment "Finetuning task for DistilBERT, focusing on specific tasks like text classification." ;
+                       rdfs:label "DistilBERT_FinetuningTask" .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#GPT4V
 :GPT4V rdf:type owl:NamedIndividual,
            :MLLM ;
          rdfs:comment "An individual representing the GPT-4 Vision model, a multimodal large language model." ;
-         rdfs:label "GPT-4V" .
+         rdfs:label "GPT-4V" ;
+         :designedBy :OpenAI ;
+         :hasInferenceTask :GPT4V_InferenceTask ;
+         green-ai:hasOperatingSystem "Ubuntu20.04" ;
+         :hasEnergyMetrics :GPT4V_EnergyMetrics ;
+         :hasHardwareSettings :GPT4V_HardwareSettings ;
+         :hasSoftwareSettings :GPT4V_SoftwareSettings .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT4V_InferenceTask
+:GPT4V_InferenceTask rdf:type owl:NamedIndividual,
+                                :InferenceTask ;
+                       rdfs:comment "Inference task for GPT4V, focusing on multimodal inputs like images." ;
+                       rdfs:label "GPT4V_InferenceTask" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT4V_EnergyMetrics
+:GPT4V_EnergyMetrics rdf:type owl:NamedIndividual ,
+                             :LLMEnergyMetrics ;
+                    rdfs:comment "Energy metrics for GPT4V, including wattage and CO2 equivalent emissions." ;
+                    rdfs:label "GPT4V_EnergyMetrics" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT4V_HardwareSettings
+:GPT4V_HardwareSettings rdf:type owl:NamedIndividual ,
+                                :LLMHardwareSettings ;
+                       green-ai:hasCPU :IntelCoreI7 ;
+                       green-ai:hasGPU :NVIDIAGeForceRTX3070 ;
+                       rdfs:comment "Hardware settings for GPT4V, including CPU and GPU used." ;
+                       rdfs:label "GPT4V_HardwareSettings" .
+
+###  http://www.semanticweb.org/tal/ontologies/llm#GPT4V_SoftwareSettings
+:GPT4V_SoftwareSettings rdf:type owl:NamedIndividual ,
+                                :LLMSoftwareSettings ;
+                       rdfs:comment "Software settings for GPT4V, including operating system and programming language." ;
+                       rdfs:label "GPT4V_SoftwareSettings" ;
+                       green-ai:hasOperatingSystem :Ubuntu20.04 ;
+                       green-ai:hasProgrammingLanguage "Python3.8" .
+
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

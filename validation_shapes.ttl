@@ -72,7 +72,7 @@ llm:BERTShape a sh:NodeShape ;
     sh:targetClass llm:BERT ;
     sh:property [
         sh:path llm:hasProgrammingLanguage ;
-        sh:hasValue llm:Python3.8 ;
+        sh:datatype xsd:string ;
         sh:description "Each BERT model must be implemented using Python 3.8." ;
     ] ;
     sh:property [
@@ -92,7 +92,7 @@ llm:MLLMShape a sh:NodeShape ;
     sh:targetClass llm:MLLM ;
     sh:property [
         sh:path llm:hasOperatingSystem ;
-        sh:hasValue llm:Ubuntu20.04 ;
+        sh:datatype xsd:string ;
         sh:description "Each Multimodal LLM must run on Ubuntu 20.04." ;
     ] ;
     sh:property [
