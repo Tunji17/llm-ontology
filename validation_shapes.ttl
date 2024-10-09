@@ -1,0 +1,115 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix llm: <http://www.semanticweb.org/tal/ontologies/llm#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+llm:LLMShape a sh:NodeShape ;
+    sh:targetClass llm:LLM ;
+    sh:property [
+        sh:path llm:designedBy ;
+        sh:class llm:Organization ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:description "Each LLM must be designed by exactly one Organization."
+    ] ;
+    sh:property [
+        sh:path llm:hasEvaluation ;
+        sh:class llm:Evaluation ;
+        sh:minCount 0 ;
+        sh:description "An LLM can have zero or more Evaluations."
+    ] ;
+    sh:property [
+        sh:path llm:hasEnergyMetrics ;
+        sh:class llm:LLMEnergyMetrics ;
+        sh:minCount 1 ;
+        sh:description "Each LLM must have at least one Energy Metrics record."
+    ] ;
+    sh:property [
+        sh:path llm:hasHardwareSettings ;
+        sh:class llm:LLMHardwareSettings ;
+        sh:minCount 1 ;
+        sh:description "Each LLM must have Hardware Settings defined."
+    ] ;
+    sh:property [
+        sh:path llm:hasSoftwareSettings ;
+        sh:class llm:LLMSoftwareSettings ;
+        sh:minCount 1 ;
+        sh:description "Each LLM must have Software Settings defined."
+    ] .
+
+llm:EvaluationShape a sh:NodeShape ;
+    sh:targetClass llm:Evaluation ;
+    sh:property [
+        sh:path llm:hasScore ;
+        sh:class llm:Score ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:description "Each Evaluation must have exactly one Score."
+    ] ;
+    sh:property [
+        sh:path llm:uses ;
+        sh:class llm:Dataset, llm:LLMArchitecture, llm:Module, llm:TransformerComponent ;
+        sh:minCount 0 ;
+        sh:description "An Evaluation can use multiple Datasets, Architectures, Modules, or Transformer Components."
+    ] .
+
+llm:ScoreShape a sh:NodeShape ;
+    sh:targetClass llm:Score ;
+    sh:property [
+        sh:path llm:isCalculatedBy ;
+        sh:class llm:Metric ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:description "Each Score must be calculated by exactly one Metric."
+    ] ;
+    sh:property [
+        sh:path llm:scoreIsOf ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:description "Each Score must have a numerical value."
+    ] .
+
+llm:BERTShape a sh:NodeShape ;
+    sh:targetClass llm:BERT ;
+    sh:property [
+        sh:path llm:hasProgrammingLanguage ;
+        sh:hasValue llm:Python3.8 ;
+        sh:description "Each BERT model must be implemented using Python 3.8." ;
+    ] ;
+    sh:property [
+        sh:path llm:hasEnergyMetrics ;
+        sh:node llm:EnergyMetricsShape ;
+        sh:minCount 1 ;
+        sh:description "Each BERT model must have associated Energy Metrics." ;
+    ] ;
+    sh:property [
+        sh:path llm:hasFinetuningTask ;
+        sh:class llm:FinetuningTask ;
+        sh:minCount 1 ;
+        sh:description "Each BERT model must have at least one Finetuning Task." ;
+    ] .
+
+llm:MLLMShape a sh:NodeShape ;
+    sh:targetClass llm:MLLM ;
+    sh:property [
+        sh:path llm:hasOperatingSystem ;
+        sh:hasValue llm:Ubuntu20.04 ;
+        sh:description "Each Multimodal LLM must run on Ubuntu 20.04." ;
+    ] ;
+    sh:property [
+        sh:path llm:hasHardwareSettings ;
+        sh:node llm:HardwareSettingsShape ;
+        sh:minCount 1 ;
+        sh:description "Each Multimodal LLM must have defined Hardware Settings." ;
+    ] ;
+    sh:property [
+        sh:path llm:hasInferenceTask ;
+        sh:class llm:InferenceTask ;
+        sh:minCount 1 ;
+        sh:description "Each Multimodal LLM must perform at least one Inference Task." ;
+    ] ;
+    sh:property [
+        sh:path llm:hasEnergyMetrics ;
+        sh:node llm:EnergyMetricsShape ;
+        sh:minCount 1 ;
+        sh:description "Each Multimodal LLM must have associated Energy Metrics." ;
+    ] .
