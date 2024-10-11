@@ -29,9 +29,9 @@ green-ai:hasProgrammingLanguage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#designedBy
 :designedBy rdf:type owl:ObjectProperty ;
-            rdfs:domain :AIsystem ;
+            rdfs:domain :AImodel ;
             rdfs:range :Organization ;
-            rdfs:comment "Links an AI system to the Organization that designed it." ;
+            rdfs:comment "Links an AI model to the Organization that designed it." ;
             rdfs:label "designedBy" .
 
 
@@ -45,9 +45,9 @@ green-ai:hasProgrammingLanguage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#hasEvaluation
 :hasEvaluation rdf:type owl:ObjectProperty ;
-               rdfs:domain :AIsystem ;
+               rdfs:domain :AImodel ;
                rdfs:range :Evaluation ;
-               rdfs:comment "Associates an AI system with its Evaluation criteria or results." ;
+               rdfs:comment "Associates an AI model with its Evaluation criteria or results." ;
                rdfs:label "hasEvaluation" .
 
 
@@ -155,11 +155,11 @@ green-ai:hasProgrammingLanguage rdf:type owl:AnnotationProperty .
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/tal/ontologies/llm#AIsystem
-:AIsystem rdf:type owl:Class ;
+###  http://www.semanticweb.org/tal/ontologies/llm#AImodel
+:AImodel rdf:type owl:Class ;
           owl:equivalentClass green-ai:AIModel ;
           rdfs:comment "A general class representing an Artificial Intelligence system, equivalent to AIModel in Green-AI ontology." ;
-          rdfs:label "AIsystem" .
+          rdfs:label "AImodel" .
 
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#BERT
@@ -171,7 +171,7 @@ green-ai:hasProgrammingLanguage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#Evaluation
 :Evaluation rdf:type owl:Class ;
-            rdfs:comment "Represents the evaluation metrics or criteria used to assess an AI system." ;
+            rdfs:comment "Represents the evaluation metrics or criteria used to assess an AI model." ;
             rdfs:label "Evaluation" .
 
 
@@ -246,8 +246,8 @@ green-ai:hasProgrammingLanguage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#LanguageModel
 :LanguageModel rdf:type owl:Class ;
-               rdfs:subClassOf :AIsystem ;
-               rdfs:comment "A general class for models that process and generate human language, subclass of AI system." ;
+               rdfs:subClassOf :AImodel ;
+               rdfs:comment "A general class for models that process and generate human language, subclass of AI model." ;
                rdfs:label "LanguageModel" .
 
 
@@ -260,7 +260,7 @@ green-ai:hasProgrammingLanguage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#Metric
 :Metric rdf:type owl:Class ;
-        rdfs:comment "Represents a quantitative measure used to evaluate the performance or characteristics of an AI system." ;
+        rdfs:comment "Represents a quantitative measure used to evaluate the performance or characteristics of an AI model." ;
         rdfs:label "Metric" .
 
 
@@ -306,13 +306,13 @@ green-ai:hasProgrammingLanguage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#Score
 :Score rdf:type owl:Class ;
-       rdfs:comment "A numerical representation of an Evaluation measure for an AI system." ;
+       rdfs:comment "A numerical representation of an Evaluation measure for an AI model." ;
        rdfs:label "Score" .
 
 
 ###  http://www.semanticweb.org/tal/ontologies/llm#Task
 :Task rdf:type owl:Class ;
-      rdfs:comment "Represents a task or function performed by an AI system." ;
+      rdfs:comment "Represents a task or function performed by an AI model." ;
       rdfs:label "Task" .
 
 
@@ -321,7 +321,7 @@ green-ai:hasProgrammingLanguage rdf:type owl:AnnotationProperty .
                 rdfs:subClassOf <http://ontology.ethereal.cz/irao/Dataset> ;
                 owl:disjointWith :TrainingDataset ,
                                  :ValidationDataset ;
-                rdfs:comment "A dataset used for evaluating the performance of an AI system, disjoint with Training and Validation Datasets." ;
+                rdfs:comment "A dataset used for evaluating the performance of an AI model, disjoint with Training and Validation Datasets." ;
                 rdfs:label "TestingDataset" .
 
 
@@ -329,7 +329,7 @@ green-ai:hasProgrammingLanguage rdf:type owl:AnnotationProperty .
 :TrainingDataset rdf:type owl:Class ;
                  rdfs:subClassOf <http://ontology.ethereal.cz/irao/Dataset> ;
                  owl:disjointWith :ValidationDataset ;
-                 rdfs:comment "A dataset used for training an AI system, disjoint with Validation Dataset." ;
+                 rdfs:comment "A dataset used for training an AI model, disjoint with Validation Dataset." ;
                  rdfs:label "TrainingDataset" .
 
 
